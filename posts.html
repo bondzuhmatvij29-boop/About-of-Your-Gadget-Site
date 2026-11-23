@@ -1,0 +1,52 @@
+<!DOCTYPE html>
+<html lang="en" data-style="aero" data-page="html5">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1, viewport-fit=cover">
+<title>Posts — AoyG</title>
+<meta name="description" content="Read and write posts about Android devices and the AoyG app.">
+<link rel="icon" type="image/png" href="assets/icon.png">
+<script>(function(){var t='black';try{t=localStorage.getItem('aog-theme')||'black';}catch(e){}if(t==='system'){t=(window.matchMedia&&window.matchMedia('(prefers-color-scheme: dark)').matches)?'black':'white';}document.documentElement.setAttribute('data-theme',t);})();</script>
+<link href="https://fonts.googleapis.com/css2?family=Roboto:wght@400;500;700&display=swap" rel="stylesheet">
+<link rel="stylesheet" href="css/style.css">
+</head>
+<body>
+<header class="bar"><div class="wrap bar-inner">
+  <a class="brand" href="index.html"><img class="brand-mark" src="assets/icon.png" alt="" width="40" height="40">AoyG</a>
+  <a class="back-link" href="index.html">Back</a>
+</div></header>
+<main class="wrap settings-page">
+  <h1>Posts</h1>
+  <div class="opts" role="tablist" style="grid-template-columns:1fr 1fr;margin-bottom:16px">
+    <a class="opt" href="#" role="tab" data-tab="list" aria-selected="true"><span>All posts</span></a>
+    <a class="opt" href="#" role="tab" data-tab="write" aria-selected="false"><span>Write a post</span></a>
+  </div>
+
+  <div data-panel="list" style="display:block">
+    <div id="posts"><p>Loading…</p></div>
+  </div>
+
+  <div data-panel="write" style="display:none">
+    <form id="postForm" class="card-box" action="#" method="post">
+      <div class="label">Name</div>
+      <input class="lang" id="nick" name="nickname" maxlength="30" placeholder="Your nickname" style="margin-bottom:10px">
+      <label style="display:flex;gap:8px;align-items:center;margin-bottom:16px">
+        <input type="checkbox" id="anon" name="anonymous"> Post anonymously
+      </label>
+      <div class="label">What is this?</div>
+      <select class="lang" name="kind" style="margin-bottom:16px">
+        <option value="post">Post</option>
+        <option value="issue">Bug report or idea (Issue)</option>
+      </select>
+      <div class="label">Your post</div>
+      <textarea name="text" rows="6" maxlength="1000" required style="width:100%;padding:12px;border-radius:var(--radius-btn);border:1px solid var(--line);background:var(--card);color:var(--fg);font:inherit"></textarea>
+      <div style="position:absolute;left:-9999px" aria-hidden="true"><input name="website" tabindex="-1" autocomplete="off"></div>
+      <p class="muted" style="margin:12px 0">No personal data (phone numbers, addresses, accounts). Posts are public and reviewed by moderators.</p>
+      <button class="btn btn-filled" type="submit">Send post</button>
+      <p id="postStatus" class="muted" style="margin-top:12px"></p>
+    </form>
+  </div>
+</main>
+<script src="js/posts.js"></script>
+</body>
+</html>
